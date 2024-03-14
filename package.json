@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start":"npm-run-all --parallel server client",
+    "server": "nodemon backend/server.js",
+    "client":"cd frontend && npm start"
   },
   "author": "DEV",
   "license": "ISC",
@@ -18,6 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.6.2",
     "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
     "socket.io": "^4.7.2"
   }
 }

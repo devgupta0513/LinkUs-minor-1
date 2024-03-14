@@ -184,6 +184,6 @@ const addToGroup = asyncHandler(async (req, res) => {
 
 
 module.exports = {
-    accessChat, fetchChats,removeFromGroup,
-    renameGroup, createGroupChat,addToGroup
+    accessChat, fetchChats, removeFromGroup,
+    renameGroup, createGroupChat, addToGroup
 }
