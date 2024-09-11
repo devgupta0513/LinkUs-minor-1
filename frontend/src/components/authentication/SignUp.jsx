@@ -37,7 +37,7 @@ const SignUp = () => {
             data.append("cloud_name", "minor-linkus");
             fetch("https://api.cloudinary.com/v1_1/minor-linkus/image/upload", {
                 method: "post",
-                body: data,
+                body: data,  
             })
                 .then((res) => res.json())
                 .then((data) => {
