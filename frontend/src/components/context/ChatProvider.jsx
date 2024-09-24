@@ -20,7 +20,7 @@ const ChatProvider = ({ children }) => {
         };
         fetchUserData();
     }, [navigate])
-
+    
     return (
         <ChatContext.Provider
             value={{
