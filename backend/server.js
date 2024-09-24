@@ -21,7 +21,9 @@ const app = express();
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send("BACKEND IS RUNNING");
+    res.json({
+        "NAME":"BACKEND OF LinkUs",
+    });
 })
 
 app.use('/api/user', (userRoutes))
