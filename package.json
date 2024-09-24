@@ -9,8 +9,7 @@
     "server": "nodemon backend/server.js",
     "client": "cd frontend && npm start",
     "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm run client\" \"npm run server\"",
-    "predeploy": " cd frontend && npm run build",
-    "deploy": " cd frontend && gh-pages -d build"
+    
   },
   "author": "DEV",
   "license": "ISC",
