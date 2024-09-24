@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send("api is setteled");
+    res.send("BACKEND IS RUNNING");
 })
 
 app.use('/api/user', (userRoutes))
