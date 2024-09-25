@@ -61,7 +61,7 @@ const authUser = asyncHandler(async (req, res) => {
 //         res.status(401);
 //         throw new Error("invalid email and password")
 //     }
-// })
+})
 const allUsers = asyncHandler(async (req, res) => {
     const keyword = req.query.search ?
         { 
