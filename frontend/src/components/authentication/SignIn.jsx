@@ -10,7 +10,7 @@ const SignIn = () => {
     const [Show, setShow] = useState(false)
 
     const handleCLick = () => setShow(!Show)
-    const [loading, setLoading] = useState( false)
+    const [loading, setLoading] = useState(false)
     const toast = useToast()
     const navigate = useNavigate()
     const submitHandler = async () => {
@@ -39,7 +39,7 @@ const SignIn = () => {
                 { email, password },
                 config
             );
-                
+
             toast({
                 title: "Login Successful",
                 status: "success",
@@ -47,7 +47,7 @@ const SignIn = () => {
                 isClosable: true,
                 position: "bottom",
             });
-            
+
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
             navigate('/chat');
@@ -71,8 +71,8 @@ const SignIn = () => {
             <FormControl id='email' isRequired >
                 <FormLabel> Email </FormLabel>
                 <Input
-            
-                value={email}
+
+                    value={email}
                     placeholder='Enter your Email'
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -122,8 +122,15 @@ const SignIn = () => {
                 colorScheme='red'
                 width="100%"
                 onClick={() => {
-                    setEmail("guest@example.com")
-                    setPassword("12345678")
+                    // setEmail("guest@example.com")
+                    // setPassword("12345678")
+                    toast({
+                        title: "CREATE YOUR OWN ID ",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                        position: "top",
+                    });
                 }}
             >
 
