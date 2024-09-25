@@ -7,7 +7,7 @@ const colors = require("colors");
 const chatRoutes = require("./Routes/chatRoutes");
 const userRoutes = require('./Routes/userRoutes');
 const messageRoutes = require('./Routes/messageRoutes')
-
+const cors = require("cors");
 const { notFound, errorHandler } = require("./middlewares/errrorMIddleware");
 const { Socket } = require("socket.io");
 
@@ -19,6 +19,13 @@ const app = express();
 
 
 app.use(express.json())
+app.use(
+    cors({
+     origin: "https://devgupta0513.github.io/LinkUs-minor-1",
+      credentials: true,
+      maxAge: 14400,
+    })
+  );
 
 app.get('/', (req, res) => {
     res.json({
