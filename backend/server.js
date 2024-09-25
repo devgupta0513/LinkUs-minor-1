@@ -21,11 +21,11 @@ const app = express();
 app.use(express.json())
 app.use(
     cors({
-     origin: "https://devgupta0513.github.io/LinkUs-minor-1",
+     origin: "https://devgupta0513.github.io",
       credentials: true,
       maxAge: 14400,
-    })
-  );
+    })
+  );
 
 app.get('/', (req, res) => {
     res.json({
