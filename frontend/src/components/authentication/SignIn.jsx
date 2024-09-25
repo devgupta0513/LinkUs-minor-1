@@ -35,7 +35,7 @@ const SignIn = () => {
             };
 
             const { data } = await axios.post(
-                "/api/user/login",
+                "https://linkus-lw9r.onrender.com/api/user/login",
                 { email, password },
                 config
             );

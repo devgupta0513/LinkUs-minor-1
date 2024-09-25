@@ -95,7 +95,7 @@ const SignUp = () => {
                 },
             };
             const { data } = await axios.post(
-                "/api/user",
+                "https://linkus-lw9r.onrender.com/api/user",
                 {
                     name,
                     email,

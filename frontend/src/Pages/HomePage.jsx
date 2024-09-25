@@ -3,6 +3,7 @@ import {Box, Container, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text} fr
 import SignIn from '../components/authentication/SignIn';
 import SignUp from '../components/authentication/SignUp'
 import { useNavigate } from 'react-router';
+const title = process.env.REACT_APP_TILE;
 const HomePage = () => {
 
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const HomePage = () => {
         >
         
           <Text fontSize="5xl" fontFamily="Work sans" >
-            LinkUs    
+           {process.env.REACT_APP_TILE}    
             
           </Text>
           

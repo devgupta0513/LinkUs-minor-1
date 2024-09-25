@@ -15,7 +15,7 @@ import animationData from "../Animations/typing.json";
 
 
 
-const endPoint = "http://localhost:5000"
+const endPoint = "https://linkus-lw9r.onrender.com"
 var socket, selectedChatCompare;
 
 
@@ -58,7 +58,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          "https://linkus-lw9r.onrender.com/api/message",
           {
             content: newMessage,
             chatId: selectedChat._id,
@@ -118,7 +118,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `https://linkus-lw9r.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);

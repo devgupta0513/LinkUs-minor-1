@@ -24,7 +24,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get("https://linkus-lw9r.onrender.com/api/chat", config);
 
       setChats(data);
 
