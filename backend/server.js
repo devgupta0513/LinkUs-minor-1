@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json())
 app.use(
     cors({
-     origin: "https://devgupta0513.github.io",
+     origin: JSON.parse(["http://localhost:3000", "https://devgupta0513.github.io"]),
       credentials: true,
       maxAge: 14400,
     })
