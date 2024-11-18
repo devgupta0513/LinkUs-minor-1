@@ -22,8 +22,14 @@ const HomePage = () => {
   return (
 
     
-    
-      <Container maxW="xl" centerContent >
+      
+      <Container 
+      maxW="xl"
+       centerContent minHeight="100vh" 
+       display="flex" 
+       flexDirection="column" 
+       justifyContent="center"
+       >
         <Box
           display="flex"
           justifyContent="center"
@@ -32,7 +38,8 @@ const HomePage = () => {
           p={3}
           bg={"white"}
           w="100%"
-          m="40px 0 15px 0 "
+          mb="15px"
+          // m="40px 0 15px 0 "
           borderRadius="lg"
           borderWidth="1px"
         >
@@ -44,7 +51,11 @@ const HomePage = () => {
           
         </Box>
         <Box
-        bg="white" w="100%" p={4} borderRadius="lg" color="black" borderWidth="1px"
+        bg="white" 
+        w="100%"
+         p={4} borderRadius="lg" color="black" borderWidth="1px"
+         overflowY="auto"
+          maxHeight="80vh"
         >
           <Tabs variant='soft-rounded' >
   <TabList mb="1em">

@@ -8,16 +8,38 @@ const SignIn = () => {
     const [password, setPassword] = useState()
     const endpoint = process.env.REACT_APP_BASE_URL;
     const [Show, setShow] = useState(false)
-
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     const handleCLick = () => setShow(!Show)
     const [loading, setLoading] = useState(false)
     const toast = useToast()
     const navigate = useNavigate()
     const submitHandler = async () => {
         setLoading(true);
-        if (!email || !password) {
+        if (!email) {
             toast({
-                title: "Please Fill all the Fields",
+                title: "Please enter  the gmail",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom",
+            });
+            setLoading(false);
+            return;
+        }
+         if (!emailRegex.test(email)) {
+            toast({
+                title: "Please enter a valid email address",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom",
+            });
+            setLoading(false);
+            return;
+          }
+          if (!password) {
+            toast({
+                title: "Please enter  the password",
                 status: "warning",
                 duration: 5000,
                 isClosable: true,
@@ -67,7 +89,7 @@ const SignIn = () => {
 
 
     return (
-        <VStack spacing="5px" color='black' >SignUp
+        <VStack spacing="5px" color='black' >
             <FormControl id='email' isRequired >
                 <FormLabel> Email </FormLabel>
                 <Input
