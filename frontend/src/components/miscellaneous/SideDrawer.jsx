@@ -33,7 +33,7 @@ const SideDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toast = useToast()
     const logoutHandler = () => {
-        localStorage.removeItem("userInfo");
+        sessionStorage.removeItem("User");
         navigate("/")
     }
 
@@ -55,7 +55,7 @@ const SideDrawer = () => {
 
             const config = {
                 headers: {
-                    Authorization: `Bearer ${user.token}`,
+                    Authorization: `Bearer ${user}`,
                 },
             };
 
@@ -85,7 +85,7 @@ const SideDrawer = () => {
             const config = {
                 headers: {
                     "Content-type": "application/json",
-                    Authorization: `Bearer ${user.token}`,
+                    Authorization: `Bearer ${user}`,
                 },
             };
             const { data } = await axios.post(`${endpoint}/api/chat`, { userId }, config);

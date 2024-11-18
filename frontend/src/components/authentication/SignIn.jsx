@@ -71,8 +71,8 @@ const SignIn = () => {
             });
             
             
-            // sessionStorage.setItem("user" , JSON.stringify(data._id)) 
-            localStorage.setItem("userInfo", JSON.stringify(data));
+            // sessionStorage.setItem("user" , JSON.stringify(data.token)) 
+            sessionStorage.setItem("User", JSON.stringify(data.token));
             setLoading(false);
             navigate('/chat');
         } catch (error) {

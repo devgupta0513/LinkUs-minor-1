@@ -285,7 +285,8 @@ const SignUp = () => {
                 isClosable: true,
                 position: "bottom",
             });
-            localStorage.setItem("userInfo", JSON.stringify(data));
+            
+            sessionStorage.setItem("User", JSON.stringify(data.token));
             setLoading(false);
             navigate('/chat')
             

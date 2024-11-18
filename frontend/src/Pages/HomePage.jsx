@@ -9,7 +9,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   useEffect(() => {
 
-          const user = JSON.parse(localStorage.getItem("userInfo"))
+          const user = JSON.parse(sessionStorage.getItem("User"))
           console.log(user)
           if (user) {
               navigate("/chat")

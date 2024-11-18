@@ -20,7 +20,7 @@ const MyChats = ({ fetchAgain }) => {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user}`,
         },
       };
 
@@ -30,6 +30,7 @@ const MyChats = ({ fetchAgain }) => {
 
 
     } catch (error) {
+      console.log(user)
       toast({
         title: "Error Occured!",
         description: "Failed to Load the chats",
@@ -51,7 +52,7 @@ const MyChats = ({ fetchAgain }) => {
 
 
   useEffect(() => {
-    setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
+    setLoggedUser(JSON.parse(sessionStorage.getItem("User")));
     fetchChats();
     // eslint-disable-next-line
  }, [fetchAgain]);

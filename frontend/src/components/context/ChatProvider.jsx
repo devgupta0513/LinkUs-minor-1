@@ -12,9 +12,9 @@ const ChatProvider = ({ children }) => {
     const endPoint = process.env.REACT_APP_BASE_URL;
     useEffect(() => {
         const fetchUserData = async () => {
-            const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
-            setUser(userInfo);
-            if (!userInfo) {
+            const User = await JSON.parse(sessionStorage.getItem("User"));
+            setUser(User);
+            if (!User) {
                 navigate("/");
             }
         };

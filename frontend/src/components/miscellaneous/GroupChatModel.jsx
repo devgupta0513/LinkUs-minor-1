@@ -28,7 +28,7 @@ const GroupChatModel = ({ children }) => {
       setLoading(true);
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user}`,
         },
       };
       const { data } = await axios.get(`${endpoint}/api/user?search=${search}`, config);
@@ -62,7 +62,7 @@ const GroupChatModel = ({ children }) => {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user}`,
         },
       };
       const { data } = await axios.post(
