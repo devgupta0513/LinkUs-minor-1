@@ -6,7 +6,7 @@ const SignIn = () => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-
+    const endpoint = process.env.REACT_APP_BASE_URL;
     const [Show, setShow] = useState(false)
 
     const handleCLick = () => setShow(!Show)
@@ -35,7 +35,7 @@ const SignIn = () => {
             };
 
             const { data } = await axios.post(
-                "https://linkus-lw9r.onrender.com/api/user/login",
+                `${endpoint}/api/user/login`,
                 { email, password },
                 config
             );

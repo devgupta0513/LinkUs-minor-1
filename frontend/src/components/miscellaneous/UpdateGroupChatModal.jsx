@@ -16,7 +16,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     const [loading, setLoading] = useState(false);
     const [renameloading, setRenameLoading] = useState(false);
     const toast = useToast();
-
+    const endpoint = process.env.REACT_APP_BASE_URL;
     const { selectedChat, setSelectedChat, user } = ChatState();
 
     const handleRemove = async (user1) => {
@@ -39,7 +39,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-                `https://linkus-lw9r.onrender.com/api/chat/groupremove`,
+                `${endpoint}/api/chat/groupremove`,
                 {
                     chatId: selectedChat._id,
                     userId: user1._id,
@@ -76,7 +76,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-                `https://linkus-lw9r.onrender.com/api/chat/rename`,
+                `${endpoint}/api/chat/rename`,
                 {
                     chatId: selectedChat._id,
                     chatName: groupChatName,
@@ -116,7 +116,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.get(`https://linkus-lw9r.onrender.com/api/user?search=${search}`, config);
+            const { data } = await axios.get(`${endpoint}/api/user?search=${search}`, config);
             console.log(data);
             setLoading(false);
             setSearchResult(data);
@@ -164,7 +164,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-                `https://linkus-lw9r.onrender.com/api/chat/groupadd`,
+                `${endpoint}/api/chat/groupadd`,
                 {
                     chatId: selectedChat._id,
                     userId: user1._id,
