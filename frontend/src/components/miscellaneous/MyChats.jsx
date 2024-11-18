@@ -11,7 +11,7 @@ import GroupChatModel from './GroupChatModel';
 
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
-
+  const endpoint = process.env.REACT_APP_BASE_URL;
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const toast = useToast()
 
@@ -24,7 +24,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(`${endpoint}/api/chat`, config);
 
       setChats(data);
 

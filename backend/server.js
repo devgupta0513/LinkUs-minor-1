@@ -7,7 +7,7 @@ const colors = require("colors");
 const chatRoutes = require("./Routes/chatRoutes");
 const userRoutes = require('./Routes/userRoutes');
 const messageRoutes = require('./Routes/messageRoutes')
-
+const cors = require("cors");
 const { notFound, errorHandler } = require("./middlewares/errrorMIddleware");
 const { Socket } = require("socket.io");
 
@@ -19,9 +19,18 @@ const app = express();
 
 
 app.use(express.json())
+app.use(
+    cors({
+  origin: JSON.parse('["http://localhost:3000", "https://devgupta0513.github.io"]'),
+      credentials: true,
+      maxAge: 14400,
+    })
+  );
 
 app.get('/', (req, res) => {
-    res.send("BACKEND IS RUNNING");
+    res.json({
+        "NAME":"BACKEND OF LinkUs",
+    });
 })
 
 app.use('/api/user', (userRoutes))
@@ -40,8 +49,8 @@ const server = app.listen(5000, console.log(`server started on port ${PORT}`.blu
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "http://localhost:3000",
-
+        origin: "https://devgupta0513.github.io",
+        
     },
 });
 

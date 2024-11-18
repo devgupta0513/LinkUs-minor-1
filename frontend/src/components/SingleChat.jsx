@@ -15,7 +15,7 @@ import animationData from "../Animations/typing.json";
 
 
 
-const endPoint = "http://localhost:5000"
+
 var socket, selectedChatCompare;
 
 
@@ -27,7 +27,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
   const toast = useToast()
-  const { selectedChat, setSelectedChat, user, notification, setNotification } =
+  const { selectedChat, setSelectedChat, user, notification, setNotification ,endPoint} =
     ChatState();
   const defaultOptions = {
     loop: true,
@@ -37,7 +37,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
+  // const endPoint = process.env.REACT_APP_BASE_URL;
+  console.log(endPoint);
+  
   useEffect(() => {
     socket = io(endPoint);
     socket.emit("setup", user);
@@ -58,7 +60,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          `${endPoint}/api/message`,
           {
             content: newMessage,
             chatId: selectedChat._id,
@@ -118,7 +120,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `${endPoint}/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);

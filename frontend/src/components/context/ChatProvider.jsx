@@ -9,7 +9,7 @@ const ChatProvider = ({ children }) => {
     const [notification, setNotification] = useState([]);
     const [chats, setChats] = useState();
     const navigate = useNavigate();
-
+    const endPoint = process.env.REACT_APP_BASE_URL;
     useEffect(() => {
         const fetchUserData = async () => {
             const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
@@ -32,6 +32,7 @@ const ChatProvider = ({ children }) => {
                 setNotification,
                 chats,
                 setChats,
+                endPoint
             }}
         >
             {children}
