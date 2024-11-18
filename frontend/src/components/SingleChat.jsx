@@ -38,7 +38,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     },
   };
   // const endPoint = process.env.REACT_APP_BASE_URL;
-  console.log(endPoint);
+
   
   useEffect(() => {
     socket = io(endPoint);

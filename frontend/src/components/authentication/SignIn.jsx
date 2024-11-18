@@ -69,7 +69,9 @@ const SignIn = () => {
                 isClosable: true,
                 position: "bottom",
             });
-
+            
+            
+            // sessionStorage.setItem("user" , JSON.stringify(data._id)) 
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
             navigate('/chat');

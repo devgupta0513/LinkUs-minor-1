@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json())
 app.use(
     cors({
-  origin: JSON.parse('["http://localhost:3000", "https://devgupta0513.github.io"]'),
+  origin: JSON.parse(process.env.CORS_ORIGIN),
       credentials: true,
       maxAge: 14400,
     })
@@ -49,7 +49,7 @@ const server = app.listen(5000, console.log(`server started on port ${PORT}`.blu
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "https://devgupta0513.github.io",
+        origin: JSON.parse(process.env.CORS_ORIGIN),
         
     },
 });
