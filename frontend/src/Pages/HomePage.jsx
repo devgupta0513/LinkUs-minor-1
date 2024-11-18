@@ -38,8 +38,8 @@ const HomePage = () => {
           p={3}
           bg={"white"}
           w="100%"
-          mb="15px"
-          // m="40px 0 15px 0 "
+           mb="15px"
+          // m="10px 0 15px 0 "
           borderRadius="lg"
           borderWidth="1px"
         >
@@ -58,7 +58,7 @@ const HomePage = () => {
           maxHeight="80vh"
         >
           <Tabs variant='soft-rounded' >
-  <TabList mb="1em">
+  <TabList mb="0.5em">
     <Tab width="50%">SIGN IN</Tab>
     <Tab width="50%">SIGN UP</Tab>
   </TabList>
