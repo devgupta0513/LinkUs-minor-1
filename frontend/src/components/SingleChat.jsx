@@ -52,10 +52,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     if (event.key === "Enter" && newMessage) {
       socket.emit("stop typing", selectedChat._id);
       try {
+        
         const config = {
           headers: {
             "Content-type": "application/json",
-            Authorization: `Bearer ${user}`,
+            Authorization: `Bearer ${user.token}`,
           },
         };
         setNewMessage("");
@@ -113,7 +114,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${user.token}`,
         },
       };
 

@@ -11,6 +11,7 @@ import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Input, 
 import { Await, useNavigate } from 'react-router-dom';
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
+import Cookies from "js-cookie";
 
 import axios from "axios";
 import ChatLoading from '../ChatLoading';
@@ -33,7 +34,9 @@ const SideDrawer = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toast = useToast()
     const logoutHandler = () => {
-        sessionStorage.removeItem("User");
+        // sessionStorage.removeItem("User");
+        Cookies.remove("token", { path: "/" });
+
         navigate("/")
     }
 

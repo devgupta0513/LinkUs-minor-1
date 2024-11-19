@@ -7,6 +7,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import ChatLoading from '../ChatLoading';
 import { getSender } from '../../config/ChatLogics';
 import GroupChatModel from './GroupChatModel';
+import Cookies from "js-cookie";
 
 
 const MyChats = ({ fetchAgain }) => {
@@ -18,9 +19,11 @@ const MyChats = ({ fetchAgain }) => {
   const fetchChats = async () => {
     // console.log(user._id);
     try {
+      
+      
       const config = {
         headers: {
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${user.token}`,
         },
       };
 
@@ -30,7 +33,7 @@ const MyChats = ({ fetchAgain }) => {
 
 
     } catch (error) {
-      console.log(user)
+      // console.log(user)
       toast({
         title: "Error Occured!",
         description: "Failed to Load the chats",
@@ -52,7 +55,8 @@ const MyChats = ({ fetchAgain }) => {
 
 
   useEffect(() => {
-    setLoggedUser(JSON.parse(sessionStorage.getItem("User")));
+    // setLoggedUser(JSON.parse(sessionStorage.getItem("User")));
+        setLoggedUser(JSON.parse(Cookies.get("token")));
     fetchChats();
     // eslint-disable-next-line
  }, [fetchAgain]);

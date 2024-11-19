@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Button, FormControl, FormLabel, Input, InputGroup, InputRightAddon, InputRightElement, Show, VStack, useToast } from '@chakra-ui/react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import Cookies from "js-cookie";
+
+
 
 const SignUp = () => {
     const [name, setName] = useState();
@@ -286,7 +289,16 @@ const SignUp = () => {
                 position: "bottom",
             });
             
-            sessionStorage.setItem("User", JSON.stringify(data.token));
+            // sessionStorage.setItem("User", JSON.stringify(data.token));
+            Cookies.set("token", JSON.stringify(data), {
+                expires: 1, // 1 day expiry
+                secure: true, // HTTPS only
+                sameSite: "Strict", // Protect against CSRF
+                // sameSite: "Lax", // Cross-origin compatibility
+                path: "/"
+            });
+            // const tol =Cookies.get("token");
+            // console.log(tol);
             setLoading(false);
             navigate('/chat')
             

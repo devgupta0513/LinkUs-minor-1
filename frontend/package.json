@@ -23,7 +23,7 @@
     "socket.io-client": "^4.7.2",
     "web-vitals": "^2.1.4"
   },
-  
+  "homepage": "https://devgupta0513.github.io/LinkUs-minor-1",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
