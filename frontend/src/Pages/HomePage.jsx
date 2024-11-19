@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
-import {Box, Container, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text} from '@chakra-ui/react'
+import {Box, Container, Image, Img, Tab, TabList, TabPanel, TabPanels, Tabs, Text} from '@chakra-ui/react'
 import SignIn from '../components/authentication/SignIn';
-import SignUp from '../components/authentication/SignUp'
+import SignUp from '../components/authentication/SignUp';
+import Cookies from "js-cookie";
+
 import { useNavigate } from 'react-router';
 const title = process.env.REACT_APP_TILE;
 const HomePage = () => {
@@ -9,7 +11,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   useEffect(() => {
 
-          const user = JSON.parse(sessionStorage.getItem("User"))
+          // const user = JSON.parse(sessionStorage.getItem("User"))
+           const user = Cookies.get("token");
           console.log(user)
           if (user) {
               navigate("/chat")

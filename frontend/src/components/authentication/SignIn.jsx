@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, FormControl, FormLabel, Input, InputGroup, InputRightAddon, InputRightElement, Show, VStack, useToast } from '@chakra-ui/react'
-import { useNavigate } from 'react-router'
+import { json, useNavigate } from 'react-router'
+import Cookies from "js-cookie";
 import axios from 'axios'
 const SignIn = () => {
 
@@ -72,7 +73,25 @@ const SignIn = () => {
             
             
             // sessionStorage.setItem("user" , JSON.stringify(data.token)) 
-            sessionStorage.setItem("User", JSON.stringify(data.token));
+            // sessionStorage.setItem("User", JSON.stringify(data.token));
+            // res.cookie("token", data.token, {
+            //     httpOnly: true, // JavaScript cannot access the cookie
+            //     secure: true,   // Cookie will only be sent over HTTPS
+            //     sameSite: "Strict", // Prevents cross-site requests
+            //     maxAge: 60 * 60 * 1000 // Cookie will expire in 1 hour
+
+            // });
+            Cookies.set("token", JSON.stringify(data), {
+                expires: 1, // 1 day expiry
+                // expires: 10/(24*60*60), // 10 seconds = 10/(24*60*60) days
+                secure: true, // HTTPS only
+                sameSite: "Strict", // Protect against CSRF hosted
+                // sameSite: "Lax", // Cross-origin compatibility local
+                 path: "/"
+            });
+           
+            
+            
             setLoading(false);
             navigate('/chat');
         } catch (error) {
