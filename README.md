@@ -48,13 +48,9 @@ Whether you're 10 years old or 100, LinkUs is designed to make communication eas
 - End-to-end encryption for messages guarantees private conversations.  
 - Advanced privacy settings allow users to control their visibility and interactions.  
 
-This expanded description provides a detailed and engaging explanation for your project, covering all its features and benefits while highlighting its innovative aspects like OTP functionality.
----
-Here is the content formatted as a professional and detailed **README.md** file:
 
 ---
 
-# **LinkUs: A Real-time Chat Application**
 
 ## **Technical Overview (For Developers)**
 
