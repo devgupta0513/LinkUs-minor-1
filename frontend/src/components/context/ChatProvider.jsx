@@ -15,6 +15,8 @@ const ChatProvider = ({ children }) => {
         const fetchUserData = async () => {
             // const User = await JSON.parse(sessionStorage.getItem("User"));
             const User = Cookies.get("token");
+            console.log(User);
+            
             
             if(User !== undefined)
 
